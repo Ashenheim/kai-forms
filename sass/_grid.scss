@@ -1,0 +1,67 @@
+/* ====================================
+   Grid system
+   ==================================== */
+
+
+/*
+    Settings
+    ------------------------------------ */
+    $grid-columns               : 4;
+
+
+
+/*
+    Functions
+    ------------------------------------ */
+
+@mixin container() {
+    width: 100%;
+    max-width: $site-width;
+    margin: 0 auto;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    @include clearfix;
+}
+
+
+@mixin row() {
+    margin-left: -#{$gutter};
+    margin-right: -#{$gutter};
+    @include clearfix;
+}
+
+@function grid-width($i) {
+    @return ( ( 100% / $grid-columns ) * $i );
+}
+
+@mixin column($i) {
+    @extend %column;
+    width: grid-width($i);
+}
+
+
+
+
+/*
+    Grid classes
+    ------------------------------------ */
+
+.container {
+    @include container;
+}
+
+.row {
+    @include row;
+}
+
+%column {
+    padding-left:  $gutter;
+    padding-right: $gutter;
+    float: left;
+}
+
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        @include column($i);
+    }
+}

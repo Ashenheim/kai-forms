@@ -1,0 +1,54 @@
+//
+    Includes
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon'
+@import 'normalize'
+@import 'variables'
+@import 'grid'
+
+/*
+    Global Styling
+    --------------
+
+*,*:after,*:before
+    box-sizing: border-box
+
+
+html, body
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif
+    height: 100%
+    min-height: 100%
+    background: $c-sec
+
+
+.site-wrap
+    padding-top: 40px
+
+    .inner
+        +container
+        background: $white
+
+
+.form-field
+    +padding( $gutter 0 $gutter $label-width )
+    position: relative
+
+    &__label
+        +position(absolute, 17px null null 0)
+        +padding( $gutter $gutter $gutter 0 )
+        width: $label-width
+        display: block
+        font-weight: bold
+
+    input[type="text"]
+        +transition
+        width: 100%
+        padding: 15px
+        display: block
+        border: 2px solid #ccc
+        outline: none
+
+        &:active, &:focus
+            text-decoration: none
+            box-shadow: none
+            border-color: $c-main
